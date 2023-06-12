@@ -28,6 +28,7 @@ public class Program {
         scanner.nextLine();
         return min;
     }
+
     private static int getGrade(int range, int week, long info) {
         int ret;
 
@@ -38,12 +39,14 @@ public class Program {
 
         return ret;
     }
+
     private static void printWeek(int minGrade) {
         for (int i = 0; i < minGrade; i++) {
             System.out.print("=");
         }
         System.out.println(">");
     }
+
     public static void main(String[] args) {
         int week = 0;
         long info = 0;
