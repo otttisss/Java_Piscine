@@ -18,13 +18,12 @@ public class Program {
                 System.err.println("Illegal Argument");
                 System.exit(-1);
             }
-//            if (min < tmp) {
-//                return min;
-//            }
-//            else {
-//                min = tmp;
-//            }
-            min = (min < tmp) ? min : tmp;
+            if (min < tmp) {
+                min = min;
+            }
+            else {
+                min = tmp;
+            }
         }
         scanner.nextLine();
         return min;
