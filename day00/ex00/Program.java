@@ -1,3 +1,4 @@
+package day00.ex00;
 public class Program {
     public static int getSum(int num) {
         int sum = 0;
