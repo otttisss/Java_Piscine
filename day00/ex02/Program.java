@@ -29,7 +29,7 @@ public class Program {
         int number = scanner.nextInt();
 
         if (number < 2) {
-            System.err.println("Illegal Argument");
+            System.err.println("IllegalArgument");
             System.exit(-1);
         }
 
