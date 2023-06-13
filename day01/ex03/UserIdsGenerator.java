@@ -1,8 +1,6 @@
-package day01.ex02;
+package day01.ex03;
 
-import day01.ex01.UserIdsGenerator;
-
-public class UsersIdsGenerator {
+public class UserIdsGenerator {
     private static final UserIdsGenerator instance = new UserIdsGenerator();
     private static Integer id = 0;
 
