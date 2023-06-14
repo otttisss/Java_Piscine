@@ -76,4 +76,9 @@ public class Transaction {
     public Transaction getNext() {
         return next;
     }
+
+    public void printTransferInfo(){
+        System.out.print("Sender: " + this.sender_.getName() + ". Recipient: " + this.recipient_.getName() );
+        System.out.println(". Category: " + this.category_ + ". Amount: " + this.amount_);
+    }
 }
