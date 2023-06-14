@@ -14,10 +14,12 @@ public class TransactionsLinkedList implements TransactionsList {
 
         Node(Node prev, Transaction t, Node next) {
             this.next = next;
-            this.prev = prev;
             this.t = t;
+            this.prev = prev;
         }
     }
+
+    public TransactionsLinkedList() {}
 
     public int getSize() {
         return size;
@@ -25,12 +27,12 @@ public class TransactionsLinkedList implements TransactionsList {
 
     @Override
     public void addTransaction(Transaction transaction) {
-        final Node tmp = last;
+        final Node tmp = this.last;
         final Node newNode = new Node(tmp, transaction, null);
-        last = newNode;
+        this.last = newNode;
 
         if (tmp == null) {
-            first = newNode;
+            this.first = newNode;
         } else {
             tmp.next = newNode;
         }

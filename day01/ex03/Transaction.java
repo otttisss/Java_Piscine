@@ -7,6 +7,7 @@ public class Transaction {
     private User recipient_;
     private User sender_;
     private Integer amount_;
+    private Transaction next;
 
     private enum Category {
         DEBIT,
@@ -68,5 +69,13 @@ public class Transaction {
 
     public Category getCategory() {
         return category_;
+    }
+
+    public void setNext(Transaction next) {
+        this.next = next;
+    }
+
+    public Transaction getNext() {
+        return next;
     }
 }
