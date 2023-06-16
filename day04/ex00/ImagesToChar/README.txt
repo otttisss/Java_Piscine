@@ -1,5 +1,5 @@
 # file is executable
-# write in terminal bash README.txt
+# write in terminal: */bash README.txt/*
 
 # deleting target
 rm -rf target
