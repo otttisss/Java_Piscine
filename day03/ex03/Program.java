@@ -42,7 +42,7 @@ public class Program {
     }
 
     private static int getThreadsCount(String[] args) {
-        int threadsCount = 1; // default value
+        int threadsCount = 1;
 
         for (String arg : args) {
             if (arg.startsWith("--threadsCount=")) {
@@ -50,7 +50,7 @@ public class Program {
                     threadsCount = Integer.parseInt(arg.substring(arg.indexOf('=') + 1));
                     break;
                 } catch (NumberFormatException e) {
-                    // Use default value if the argument is not a valid integer
+
                 }
             }
         }
@@ -99,7 +99,7 @@ public class Program {
 
                 synchronized (fileUrls) {
                     if (fileUrls.isEmpty()) {
-                        break; // No more files to download
+                        break;
                     }
 
                     fileUrl = fileUrls.remove(0);
