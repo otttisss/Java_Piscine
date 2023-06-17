@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class Logic {
 
-    public static void imageToChar(char white, char black, String path) {
+    public static void imageToChar(char white, char black) {
         try {
-            BufferedImage image = ImageIO.read(new File(path));
+            BufferedImage image = ImageIO.read(Logic.class.getResource("/resources/it.bmp"));
 
             for (int y = 0; y < image.getHeight(); y++) {
                 for (int x = 0; x < image.getWidth(); x++) {
