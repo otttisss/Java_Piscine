@@ -13,10 +13,18 @@
       <sourceFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar/src/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar/src/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/day04/ex02" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar/src/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00/ImagesToChar" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00/ImagesToChar/src" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00/ImagesToChar/src/java" />
+      <excludeFolder url="file://$MODULE_DIR$/day04/ex01" />
+      <excludeFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar/src/java" />
+      <excludeFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar" />
+      <excludeFolder url="file://$MODULE_DIR$/day04/ex01/ImagesToChar/src" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
