@@ -16,5 +16,6 @@ create table if not exists chat_messages (
     id          serial primary key,
     author      integer references chat_users(id) not null,
     room        integer references chat_rooms(id) not null,
+    message     text,
     timestamp   timestamp default CURRENT_TIMESTAMP
 );
