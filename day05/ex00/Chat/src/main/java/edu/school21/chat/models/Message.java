@@ -15,4 +15,44 @@ public class Message {
         this.text = text;
         this.timestamp = timestamp;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public Chatroom getRoom() {
+        return room;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public void setRoom(Chatroom room) {
+        this.room = room;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 }
