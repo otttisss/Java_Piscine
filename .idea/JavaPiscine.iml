@@ -17,6 +17,12 @@
       <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day04/ex02/ImagesToChar/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00/Chat" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00/Chat/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00/Chat/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00/Chat/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day05/ex00/Chat/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00/ImagesToChar" />
       <excludeFolder url="file://$MODULE_DIR$/day04/ex00/ImagesToChar/src" />
