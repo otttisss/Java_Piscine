@@ -41,7 +41,7 @@ public class Message {
                 "id=" + id +
                 ",\nauthor=" + author +
                 ",\nroom=" + room +
-                ",\ntext=" + text +
+                ",\ntext='" + text + '\'' +
                 ",\ntime=" + timestamp +
                 "\n}";
     }
