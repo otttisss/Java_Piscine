@@ -13,7 +13,7 @@ values ('User4', '1234567');
 insert into chat.users(login, password)
 values ('User5', '12345678');
 
-insert into chat_user(login, password)
+insert into chat.users(login, password)
 values ('User6', '123456789');
 
 
@@ -24,16 +24,16 @@ insert into chat.rooms(room_name, owner)
 values ('Chat2', 2);
 
 insert into chat.rooms(room_name, owner)
-values ('Chat3', 4);
+values ('Chat3', 3);
 
 insert into chat.rooms(room_name, owner)
-values ('Chat4', 6);
+values ('Chat4', 4);
 
 insert into chat.rooms(room_name, owner)
-values ('Chat5', 2);
+values ('Chat5', 5);
 
 insert into chat.rooms(room_name, owner)
-values ('Chat6', 3);
+values ('Chat6', 6);
 
 
 insert into chat.messages(author, room, message)

@@ -1,3 +1,6 @@
+drop table if exists chat.users, chat.rooms, chat.messages;
+drop schema if exists chat;
+
 create schema if not exists chat;
 
 create table if not exists chat.users (
@@ -9,13 +12,13 @@ create table if not exists chat.users (
 create table if not exists chat.rooms (
     id          serial primary key,
     room_name   text not null,
-    owner       integer references chat.users(id) not null
+    owner       int not null references chat.users(id)
 );
 
 create table if not exists chat.messages (
     id          serial primary key,
-    author      integer references chat.users(id) not null,
-    room        integer references chat.rooms(id) not null,
+    author      int not null references chat.users(id),
+    room        int not null references chat.rooms(id),
     message     text,
     timestamp   timestamp default CURRENT_TIMESTAMP
 );
