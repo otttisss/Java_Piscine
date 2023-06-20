@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 public class Chatroom {
-    private int id;
+    private Long id;
     private String room_name;
     private User owner;
     private List<Message> messageList;
 
-    public Chatroom(int id, String room_name, User owner, List<Message> messageList) {
+    public Chatroom(Long id, String room_name, User owner, List<Message> messageList) {
         this.id = id;
         this.room_name = room_name;
         this.owner = owner;
         this.messageList = messageList;
     }
 
-    public Chatroom(int id, String room_name) {
+    public Chatroom(Long id, String room_name) {
         this.id = id;
         this.room_name = room_name;
     }
@@ -53,7 +53,7 @@ public class Chatroom {
                 "}";
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -69,7 +69,7 @@ public class Chatroom {
         return messageList;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
