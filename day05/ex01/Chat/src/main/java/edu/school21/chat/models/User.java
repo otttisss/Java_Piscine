@@ -43,12 +43,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id = " + id +
-                ", login = " + login + '\'' +
-                ", password = " + password + '\'' +
-                ", createdRooms = " + createdRooms + '\'' +
-                ", userRooms =" + usedRoom +
+        return "{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", createdRooms=" + createdRooms +
+                ", userRooms=" + usedRoom +
                 '}';
     }
 

@@ -45,11 +45,11 @@ public class Chatroom {
 
     @Override
     public String toString() {
-        return "Chatroom{" +
-                "id = " + id +
-                ", name = " + room_name + '\'' +
-                ", owner = " + owner +
-                ", messageList = " + messageList +
+        return "{" +
+                "id=" + id +
+                ", title='" + room_name + '\'' +
+                ", owner=" + owner +
+                ", messageList=" + messageList +
                 "}";
     }
 

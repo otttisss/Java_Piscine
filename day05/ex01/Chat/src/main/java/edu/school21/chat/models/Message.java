@@ -37,13 +37,13 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message {" +
-                "id = " + id +
-                ", author = " + author + '\'' +
-                ", room = " + room + '\'' +
-                ", text = " + text + '\'' +
-                ", time = " + timestamp +
-                "}";
+        return "Message: {\n" +
+                "id=" + id +
+                ",\nauthor=" + author +
+                ",\nroom=" + room +
+                ",\ntext=" + text +
+                ",\ntime=" + timestamp +
+                "\n}";
     }
 
     public Long getId() {
