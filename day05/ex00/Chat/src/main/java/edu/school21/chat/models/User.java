@@ -20,17 +20,30 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password, createdRooms);
+        return Objects.hash(id, login, password, createdRooms, usedRoom);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        User user = (User) obj;
+
+        return Objects.equals(id, user.id) && Objects.equals(login, user.login) && Objects.equals(password, user.password) &&
+                Objects.equals(createdRooms, user.createdRooms) && Objects.equals(usedRoom, user.usedRoom);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "User{" +
+                "id = " + id +
+                ", login = " + login + '\'' +
+                ", password = " + password + '\'' +
+                ", createdRooms = " + createdRooms + '\'' +
+                ", userRooms =" + usedRoom +
+                '}';
     }
 
     public int getId() {

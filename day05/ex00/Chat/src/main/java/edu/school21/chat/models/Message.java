@@ -1,6 +1,8 @@
 package edu.school21.chat.models;
 
 import java.time.*;
+import java.util.Objects;
+
 public class Message {
     private int id;
     private User author;
@@ -18,17 +20,30 @@ public class Message {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(id, author, room, text, timestamp);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Message message = (Message) obj;
+
+        return Objects.equals(id, message.id) && Objects.equals(author, message.author) &&
+                Objects.equals(room, message.room) && Objects.equals(text, message.text) && Objects.equals(timestamp, message.timestamp);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Message {" +
+                "id = " + id +
+                ", author = " + author + '\'' +
+                ", room = " + room + '\'' +
+                ", text = " + text + '\'' +
+                ", time = " + timestamp +
+                "}";
     }
 
     public int getId() {

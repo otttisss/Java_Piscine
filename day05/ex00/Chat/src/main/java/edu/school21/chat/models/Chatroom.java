@@ -1,6 +1,7 @@
 package edu.school21.chat.models;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Chatroom {
     private int id;
@@ -17,17 +18,34 @@ public class Chatroom {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(id, room_name, owner, messageList);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        Chatroom chatroom = (Chatroom) obj;
+        if (id != chatroom.id)
+            return false;
+        if (owner != chatroom.owner)
+            return false;
+        if (!Objects.equals(room_name, chatroom.room_name))
+            return false;
+        return Objects.equals(messageList, chatroom.messageList);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Chatroom{" +
+                "id = " + id +
+                ", name = " + room_name + '\'' +
+                ", owner = " + owner +
+                ", messageList = " + messageList +
+                "}";
     }
 
     public int getId() {
