@@ -1,5 +1,6 @@
 package edu.school21.chat.repositories;
 
+import edu.school21.chat.exception.NotSavedSubEntityException;
 import edu.school21.chat.models.*;
 
 import java.sql.Connection;
@@ -17,6 +18,11 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
     public MessagesRepositoryJdbcImpl(DataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    @Override
+    public boolean save(Message message) throws NotSavedSubEntityException {
+        return false;
     }
 
     @Override
