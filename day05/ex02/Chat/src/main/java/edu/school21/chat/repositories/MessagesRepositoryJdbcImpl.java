@@ -3,10 +3,7 @@ package edu.school21.chat.repositories;
 import edu.school21.chat.exception.NotSavedSubEntityException;
 import edu.school21.chat.models.*;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Optional;
 import javax.sql.DataSource;
 
@@ -22,6 +19,22 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
     @Override
     public boolean save(Message message) throws NotSavedSubEntityException {
+        String insertQuery = "insert into chat.messages (id, author, room, message, timestamp)" +
+                " values (" + message.getAuthor().getId() + "," +
+                message.getRoom().getId() + ", " +
+                message.getText() + ", " +
+                Timestamp.valueOf(message.getTimestamp()) + ");";
+
+        try (Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            message.setId(resultSet.getLong("id"));
+        } catch (SQLException e) {
+
+        }
         return false;
     }
 
