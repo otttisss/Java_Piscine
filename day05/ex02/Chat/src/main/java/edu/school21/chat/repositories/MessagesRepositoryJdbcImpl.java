@@ -18,24 +18,40 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
     }
 
     @Override
-    public boolean save(Message message) throws NotSavedSubEntityException {
-        String insertQuery = "insert into chat.messages (id, author, room, message, timestamp)" +
-                " values (" + message.getAuthor().getId() + "," +
-                message.getRoom().getId() + ", " +
-                message.getText() + ", " +
-                Timestamp.valueOf(message.getTimestamp()) + ");";
+    public void save(Message message) throws NotSavedSubEntityException {
+        Long userId, roomId;
+        String localDateTime = "'null'";
 
-        try (Connection connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.execute();
+        userId = message.getAuthor().getId();
+        roomId = message.getRoom().getId();
+        try(Connection con = dataSource.getConnection();
+            Statement st = con.createStatement()) {
+            String uQuery = "select * from chat.users where id = ";
+            ResultSet rs = st.executeQuery(uQuery + userId);
 
-            ResultSet resultSet = preparedStatement.getGeneratedKeys();
-            resultSet.next();
-            message.setId(resultSet.getLong("id"));
+            if (!rs.next()) {
+                throw new NotSavedSubEntityException("User with id = " + userId + " doesn't exist");
+            }
+            String cQuery = "select * from chat.rooms where id = ";
+            rs = st.executeQuery(cQuery + roomId);
+
+            if (!rs.next()) {
+                throw new NotSavedSubEntityException("Chatroom with id = " + roomId + " doesn't exist");
+            }
+
+            if (message.getTimestamp() != null) {
+                localDateTime = "'" + Timestamp.valueOf(message.getTimestamp()) + "'";
+            }
+            rs = st.executeQuery("insert into chat.messages (author, room, message, timestamp)" +
+                    "values (" + userId + ", " + roomId + ", '" + message.getText() + "', " + localDateTime + ") RETURNING id");
+
+            if (!rs.next()) {
+                throw new NotSavedSubEntityException("Internal Error");
+            }
+            message.setId(rs.getLong(1));
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
-        return false;
     }
 
     @Override

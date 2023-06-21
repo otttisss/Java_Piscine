@@ -7,5 +7,5 @@ import java.sql.SQLException;
 import java.util.Optional;
 public interface MessagesRepository {
     Optional<Message> findById(Long id) throws SQLException;
-    boolean save(Message message) throws NotSavedSubEntityException;
+    void save(Message message) throws NotSavedSubEntityException;
 }
