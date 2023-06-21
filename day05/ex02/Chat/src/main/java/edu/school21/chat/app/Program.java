@@ -8,11 +8,8 @@ import edu.school21.chat.repositories.MessagesRepository;
 import edu.school21.chat.repositories.MessagesRepositoryJdbcImpl;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         User creator = new User(6L, "creator", "creator", new ArrayList<>(), new ArrayList<>());

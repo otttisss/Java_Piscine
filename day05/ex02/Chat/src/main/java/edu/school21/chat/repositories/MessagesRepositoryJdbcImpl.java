@@ -29,19 +29,16 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
             String uQuery = "select * from chat.users where id = ";
             ResultSet rs = st.executeQuery(uQuery + userId);
 
-            if (!rs.next()) {
+            if (!rs.next())
                 throw new NotSavedSubEntityException("User with id = " + userId + " doesn't exist");
-            }
             String cQuery = "select * from chat.rooms where id = ";
             rs = st.executeQuery(cQuery + roomId);
 
-            if (!rs.next()) {
+            if (!rs.next())
                 throw new NotSavedSubEntityException("Chatroom with id = " + roomId + " doesn't exist");
-            }
 
-            if (message.getTimestamp() != null) {
+            if (message.getTimestamp() != null)
                 localDateTime = "'" + Timestamp.valueOf(message.getTimestamp()) + "'";
-            }
             rs = st.executeQuery("insert into chat.messages (author, room, message, timestamp)" +
                     "values (" + userId + ", " + roomId + ", '" + message.getText() + "', " + localDateTime + ") RETURNING id");
 
