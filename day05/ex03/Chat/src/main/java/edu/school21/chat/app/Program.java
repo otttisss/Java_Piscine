@@ -8,17 +8,26 @@ import edu.school21.chat.repositories.MessagesRepository;
 import edu.school21.chat.repositories.MessagesRepositoryJdbcImpl;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Optional;
+
 public class Program {
-    public static void main(String[] args) {
-        User creator = new User(6L, "creator", "creator", new ArrayList<>(), new ArrayList<>());
-        User author = creator;
-        Chatroom room = new Chatroom(6L, "room", creator, new ArrayList<>());
-        Message message = new Message(null, author, room, "Hello everyone!", LocalDateTime.now());
+    public static void main(String[] args) throws SQLException {
         MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(hikariCPData());
-        messagesRepository.save(message);
-        System.out.println(message.getId());
+        Optional<Message> messageOptional = messagesRepository.findById(1L);
+
+        if (messageOptional.isPresent()) {
+            Message message = messageOptional.get();
+            message.setText("Abra kadabra");
+            message.setTimestamp(null);
+            messagesRepository.update(message);
+            messageOptional = messagesRepository.findById(1L);
+            System.out.println("Updated message: " + messageOptional.get().getText());
+        } else {
+            System.err.println("\nMessage not found");
+        }
     }
 
     public static DataSource hikariCPData() {

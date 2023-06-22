@@ -4,6 +4,7 @@ import edu.school21.chat.exception.NotSavedSubEntityException;
 import edu.school21.chat.models.*;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import javax.sql.DataSource;
 
@@ -108,11 +109,16 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
             Long roomId = resultSet.getLong(3);
             User user = findUser(userId);
             Chatroom chatroom = findChatroom(roomId);
-
+            Timestamp time = resultSet.getTimestamp(5);
+            LocalDateTime timeOptional;
+            if (time == null)
+                timeOptional = LocalDateTime.now();
+            else
+                timeOptional = resultSet.getTimestamp(5).toLocalDateTime();
             return Optional.of(new Message(resultSet.getLong(1), user, chatroom,
-                    resultSet.getString(4), resultSet.getTimestamp(5).toLocalDateTime()));
+                    resultSet.getString(4), timeOptional));
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return Optional.empty();
     }
