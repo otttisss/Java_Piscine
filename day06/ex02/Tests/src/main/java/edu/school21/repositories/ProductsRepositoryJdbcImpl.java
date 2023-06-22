@@ -80,13 +80,14 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 
     @Override
     public void save(Product product) throws SQLException {
-        String query = "insert into shop.products (name, price) values (?, ?)";
+        String query = "insert into shop.products(name, price) values (?, ?)";
 
         try (Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(query)){
 
             statement.setString(1, product.getName());
             statement.setLong(2, product.getPrice());
+            statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -97,9 +98,8 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
         String query = "delete from shop.products where id = ";
 
         try (Connection connection = dataSource.getConnection();
-        Statement statement = connection.createStatement()) {
-
-            statement.execute(query + id);
+        PreparedStatement statement = connection.prepareStatement(query + id)) {
+            statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }

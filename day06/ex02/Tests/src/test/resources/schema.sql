@@ -1,7 +1,8 @@
 create schema if not exists shop;
+drop table if exists shop.products;
 
 create table shop.products (
-    id int primary key identity,
-    name varchar(100) not null,
-    price int not null
+    id integer primary key identity,
+    name varchar(100),
+    price integer
 );

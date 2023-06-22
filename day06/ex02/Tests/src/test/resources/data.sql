@@ -1,5 +1,4 @@
-insert into shop.products(name, price)
-values
+insert into shop.products(name, price) values
 ('Meat', 250),
 ('Fish', 350),
 ('Chicken', 150),
