@@ -6,4 +6,4 @@ values
 (4, 'Apple', 50),
 (5, 'Tomato', 55),
 (6, 'Onion', 20),
-(7, 'Milk', 100),
+(7, 'Milk', 100);

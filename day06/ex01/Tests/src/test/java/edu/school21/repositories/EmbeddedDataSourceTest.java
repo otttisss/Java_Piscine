@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-public class EmbeddedDataSource {
+public class EmbeddedDataSourceTest {
     private DataSource dataSource;
 
     @BeforeEach
