@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface MessagesRepository {
     Optional<Message> findById(Long id) throws SQLException;
     void save(Message message) throws NotSavedSubEntityException;
+
+    void update(Message message) throws NotSavedSubEntityException;
 }

@@ -18,6 +18,50 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
     }
 
     @Override
+    public void update(Message message) throws NotSavedSubEntityException {
+        Timestamp time = null;
+        Long userId = message.getAuthor().getId();
+
+        try (Connection connection = dataSource.getConnection();
+            Statement statement = connection.createStatement()) {
+
+            String messageSelect = "select * from chat.messages where id = ";
+            String userSelect = "select * from chat.users where id = ";
+
+            ResultSet resultSet = statement.executeQuery(userSelect + userId);
+            if (!resultSet.next())
+                throw new NotSavedSubEntityException("User with id = " + userId + "doesn't exist");
+            statement.close();
+            PreparedStatement preparedStatement = connection.prepareStatement(messageSelect + message.getId());
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                save(message);
+                return;
+            }
+
+            if (message.getText() == null) {
+                message.setText("");
+            }
+            if (message.getTimestamp() != null)
+                time = Timestamp.valueOf(message.getTimestamp());
+
+            String updateQuery = "update chat.messages set author = ?, room = ?, message = ?," +
+                    " timestamp = ? where id = ?";
+            preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setLong(1, message.getAuthor().getId());
+            preparedStatement.setLong(2, message.getRoom().getId());
+            preparedStatement.setString(3, message.getText());
+            preparedStatement.setTimestamp(4, time);
+            preparedStatement.setLong(5, message.getId());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void save(Message message) throws NotSavedSubEntityException {
         Long userId, roomId;
         String localDateTime = "'null'";
