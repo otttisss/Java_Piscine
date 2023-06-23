@@ -17,7 +17,7 @@ public class UserServiceImpl {
         if (user == null)
             throw new EntityNotFoundException();
         if (user.isAuthenticated())
-            throw new AlreadyAuthenticatedException("Authentification doesn't exist");
+            throw new AlreadyAuthenticatedException("Authentication doesn't exist");
         if (user.getPassword().equals(password)) {
             user.setAuthenticated(true);
             usersRepository.update(user);
