@@ -1,4 +1,9 @@
 package school21.spring.service.repositories;
 
-public class UsersRepository {
+import school21.spring.service.models.User;
+
+import java.util.Optional;
+
+public interface UsersRepository extends CrudRepository<User> {
+    Optional<User> findByEmail(String email);
 }
