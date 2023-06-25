@@ -1,5 +1,8 @@
 package school21.spring.service.repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import school21.spring.service.models.User;
 
 import javax.sql.DataSource;
@@ -8,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component("usersRepositoryJdbcImpl")
 public class UsersRepositoryJdbcImpl implements UsersRepository {
     private final DataSource dataSource;
 
-    public UsersRepositoryJdbcImpl(DataSource dataSource) {
+    @Autowired
+    public UsersRepositoryJdbcImpl(@Qualifier("hikariDataSource") DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
