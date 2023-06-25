@@ -3,12 +3,18 @@ package school21.spring.service.models;
 public class User {
     private Long id;
     private String email;
+    private String password;
 
     public User() {}
 
     public User(Long id, String email) {
         this.id = id;
         this.email = email;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {

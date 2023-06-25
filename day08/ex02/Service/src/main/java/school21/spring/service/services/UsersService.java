@@ -1,4 +1,5 @@
 package school21.spring.service.services;
 
-public class UsersService {
+public interface UsersService {
+    String signUp(String email);
 }
