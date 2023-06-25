@@ -7,13 +7,22 @@ public class User {
 
     public User() {}
 
-    public User(Long id, String email) {
+    public User(Long id, String email, String password) {
         this.id = id;
         this.email = email;
+        this.password = password;
     }
 
     public User(String email, String password) {
         this.email = email;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 

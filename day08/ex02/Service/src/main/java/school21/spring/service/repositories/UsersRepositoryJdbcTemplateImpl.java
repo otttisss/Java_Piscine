@@ -35,12 +35,12 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     @Override
     public void save(User entity) {
-        jdbcTemplate.update("insert into users (email) values (?)", entity.getEmail());
+        jdbcTemplate.update("insert into users (email, password) values (?, ?)", entity.getEmail(), entity.getPassword());
     }
 
     @Override
     public void update(User entity) {
-        jdbcTemplate.update("update users set email=? where id = ?", entity.getEmail(), entity.getId());
+        jdbcTemplate.update("update users set email=?, password=? where id = ?", entity.getEmail(), entity.getPassword(),entity.getId());
     }
 
     @Override
