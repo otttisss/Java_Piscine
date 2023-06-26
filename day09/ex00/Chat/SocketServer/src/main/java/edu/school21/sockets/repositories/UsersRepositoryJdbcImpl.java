@@ -1,9 +1,9 @@
-package school21.spring.service.repositories;
+package edu.school21.sockets.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import school21.spring.service.models.User;
+import edu.school21.sockets.models.User;
 
 import javax.sql.DataSource;
 import java.sql.*;

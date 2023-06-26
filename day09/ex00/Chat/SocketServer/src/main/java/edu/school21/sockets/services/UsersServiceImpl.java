@@ -1,12 +1,10 @@
-package school21.spring.service.services;
-
+package edu.school21.sockets.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import school21.spring.service.models.User;
-import school21.spring.service.repositories.UsersRepository;
-
+import edu.school21.sockets.models.User;
+import edu.school21.sockets.repositories.UsersRepository;
 import java.util.Random;
 
 @Component

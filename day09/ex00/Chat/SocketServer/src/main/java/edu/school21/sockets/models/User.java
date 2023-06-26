@@ -1,5 +1,4 @@
-package school21.spring.service.models;
-
+package edu.school21.sockets.models;
 public class User {
     private Long id;
     private String email;
